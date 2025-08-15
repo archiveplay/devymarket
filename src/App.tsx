@@ -25,7 +25,7 @@ function App() {
         </a>
       </FlexBoxRow>
       <FlexBoxRow>
-        <h1>Vite + React + TWA</h1>
+        <h1>Devymarket</h1>
       </FlexBoxRow>
       <FlexBoxRow>
         <TonConnectButton />
