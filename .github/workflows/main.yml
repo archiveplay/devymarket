@@ -1,0 +1,43 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Клонируем репозиторий
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+
+      # 2. Ставим зависимости
+      - name: Install dependencies
+        run: npm ci
+
+      # 3. Сборка
+      - name: Build project
+        run: npm run build
+        env:
+          CI: false
+
+      # 4. Отладка — проверим, что в dist есть билд
+      - name: Debug dist content
+        run: |
+          echo "=== DIST CONTENT ==="
+          ls -la dist
+
+      # 5. Деплой на gh-pages (с полным затиранием)
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: dist
+          clean: true # полностью очищает старое содержимое
+
