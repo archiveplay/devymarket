@@ -2,12 +2,24 @@ import { StrictMode } from 'react'
 import { TonConnectUIProvider } from "@tonconnect/ui-react";
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from "react-router";
+import { extend } from '@pixi/react';
 import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
+import {
+  Container,
+  Graphics,
+  Sprite,
+} from 'pixi.js';
 import '@/index.css'
 import App from '@/App.tsx'
+
+extend({
+  Container,
+  Graphics,
+  Sprite,
+});
 
 const queryClient = new QueryClient({
   defaultOptions: { queries: { refetchOnWindowFocus: false } },
