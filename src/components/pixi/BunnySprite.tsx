@@ -13,7 +13,6 @@ export function BunnySprite() {
 
   const [texture, setTexture] = useState(Texture.EMPTY)
   const [isActive, setIsActive] = useState(false)
-  const [pos, setPos] = useState({ x: 100, y: 100 })
 
   useEffect(() => {
     if (texture === Texture.EMPTY) {
@@ -25,21 +24,16 @@ export function BunnySprite() {
     }
   }, [texture]);
 
-  const runAway = () => {
-    setPos({ x: Math.random() * 500, y: Math.random() * 500 })
-  }
-
   return (
     <pixiSprite
       ref={spriteRef}
       anchor={0.5}
       eventMode={'static'}
       onClick={() => setIsActive(!isActive)}
-      onPointerOver={runAway}
       scale={isActive ? 1 : 1.5}
       texture={texture}
-      x={pos.x}
-      y={pos.y} />
+      x={400}
+      y={200} />
   );
 }
 

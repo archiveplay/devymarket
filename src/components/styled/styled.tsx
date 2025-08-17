@@ -33,4 +33,15 @@ export const Card = styled.div`
   color: var(--tg-theme-text-color)
 `;
 
+export const PixiContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: start;
 
+  canvas {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain;
+  }
+`;

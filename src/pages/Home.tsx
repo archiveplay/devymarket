@@ -1,6 +1,6 @@
 import "@twa-dev/sdk";
 import { TonConnectButton } from "@tonconnect/ui-react";
-import { FlexBoxRow, FlexBoxCol } from '@/components/styled/styled';
+import { FlexBoxRow, FlexBoxCol, PixiContainer } from '@/components/styled/styled';
 import { useTonConnect } from '@/hooks/ton/useTonConnect';
 import { WalletInfo } from "@/components/ui/wallet/WalletInfo";
 import {
@@ -14,9 +14,11 @@ export const Home = () => {
   return (
     <FlexBoxCol>
       <FlexBoxRow>
-        <Application>
-          <BunnySprite />
-        </Application>
+        <PixiContainer>
+          <Application width={800} height={400}>
+            <BunnySprite />
+          </Application>
+        </PixiContainer>
       </FlexBoxRow>
       <FlexBoxRow>
         <TonConnectButton />
